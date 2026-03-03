@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="История города Димитровград — официальный информационный портал о прошлом и настоящем города в Ульяновской области. Основание, переименования, достопримечательности.">
+  <meta name="keywords" content="Димитровград, Мелекесс, история, Ульяновская область, достопримечательности, Поволжье">
+  <title>Димитровград — История города</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "City",
+    "name": "Димитровград",
+    "alternateName": "Мелекесс",
+    "description": "Город в Ульяновской области России, расположенный на берегу Черемшанского залива Куйбышевского водохранилища",
+    "foundingDate": "1698",
+    "containedInPlace": {
+      "@type": "AdministrativeArea",
+      "name": "Ульяновская область"
+    }
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       CSS VARIABLES & RESET
+    ============================================================ */
+    :root {
+      --bg: #f5f0e8;
+      --bg2: #ede7d9;
+      --surface: #fff;
+      --text: #1a1209;
+      --text-muted: #6b5c40;
+      --accent: #8b3a1a;
+      --accent2: #c47c3a;
+      --gold: #c9a84c;
+      --border: rgba(139,58,26,0.15);
+      --shadow: 0 4px 30px rgba(26,18,9,0.12);
+      --radius: 12px;
+      --nav-h: 68px;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Jost', system-ui, sans-serif;
+      --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    [data-theme="dark"] {
+      --bg: #110e0a;
+      --bg2: #1c1710;
+      --surface: #251e14;
+      --text: #f0e8d8;
+      --text-muted: #a89070;
+      --accent: #d4694a;
+      --accent2: #e09a5a;
+      --gold: #d4aa5c;
+      --border: rgba(212,105,74,0.2);
+      --shadow: 0 4px 30px rgba(0,0,0,0.4);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      transition: background var(--transition), color var(--transition);
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    h1, h2, h3, h4 { font-family: var(--serif); line-height: 1.15; }
+
+    /* ============================================================
+       SCROLLBAR
+    ============================================================ */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      height: var(--nav-h);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem;
+      background: rgba(245,240,232,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: background var(--transition), box-shadow var(--transition);
+    }
+    [data-theme="dark"] #navbar {
+      background: rgba(17,14,10,0.92);
+    }
+    #navbar.scrolled { box-shadow: var(--shadow); }
+    .nav-brand {
+      font-family: var(--serif); font-size: 1.4rem; font-weight: 700;
+      color: var(--text); letter-spacing: 0.02em;
+    }
+    .nav-brand span { color: var(--accent); }
+    .nav-links {
+      display: flex; gap: 0.25rem; list-style: none; align-items: center;
+    }
+    .nav-links a {
+      font-size: 0.85rem; font-weight: 500; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--text-muted);
+      padding: 0.4rem 0.75rem; border-radius: 6px;
+      transition: color var(--transition), background var(--transition);
+    }
+    .nav-links a:hover { color: var(--accent); background: var(--border); text-decoration: none; }
+    .nav-controls { display: flex; gap: 0.5rem; align-items: center; }
+    .btn-icon {
+      width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--border);
+      background: transparent; cursor: pointer; color: var(--text-muted);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; transition: all var(--transition);
+    }
+    .btn-icon:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px; cursor: pointer;
+      background: none; border: none; padding: 4px;
+    }
+    .hamburger span {
+      width: 24px; height: 2px; background: var(--text);
+      display: block; transition: all var(--transition);
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    /* mobile nav */
+    .nav-mobile {
+      display: none; position: fixed; top: var(--nav-h); left: 0; right: 0;
+      background: var(--surface); padding: 1.5rem; z-index: 999;
+      border-bottom: 1px solid var(--border);
+      flex-direction: column; gap: 0.5rem;
+      box-shadow: var(--shadow);
+    }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a {
+      font-size: 1rem; font-weight: 500; color: var(--text);
+      padding: 0.75rem 1rem; border-radius: 8px;
+      transition: background var(--transition);
+    }
+    .nav-mobile a:hover { background: var(--bg2); text-decoration: none; }
+
+    /* ============================================================
+       SEARCH OVERLAY
+    ============================================================ */
+    #search-overlay {
+      position: fixed; inset: 0; z-index: 2000;
+      background: rgba(17,14,10,0.85); backdrop-filter: blur(8px);
+      display: none; align-items: flex-start; justify-content: center;
+      padding-top: 15vh;
+    }
+    #search-overlay.open { display: flex; }
+    .search-box {
+      background: var(--surface); border-radius: 16px;
+      width: min(700px, 90vw); padding: 2rem; box-shadow: var(--shadow);
+    }
+    .search-box h3 { font-family: var(--serif); font-size: 1.5rem; margin-bottom: 1rem; }
+    .search-input-wrap { position: relative; }
+    .search-input-wrap input {
+      width: 100%; padding: 1rem 3rem 1rem 1rem;
+      border: 2px solid var(--border); border-radius: 10px;
+      background: var(--bg); color: var(--text); font-family: var(--sans);
+      font-size: 1rem; outline: none;
+      transition: border-color var(--transition);
+    }
+    .search-input-wrap input:focus { border-color: var(--accent); }
+    .search-clear {
+      position: absolute; right: 1rem; top: 50%; transform: translateY(-50%);
+      background: none; border: none; cursor: pointer; color: var(--text-muted);
+      font-size: 1.2rem;
+    }
+    #search-results { margin-top: 1.5rem; max-height: 50vh; overflow-y: auto; }
+    .search-result-item {
+      padding: 0.75rem 1rem; border-radius: 8px; cursor: pointer;
+      border-bottom: 1px solid var(--border);
+      transition: background var(--transition);
+    }
+    .search-result-item:hover { background: var(--bg2); }
+    .search-result-item .sri-section { font-size: 0.75rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em; }
+    .search-result-item .sri-title { font-weight: 600; margin: 0.2rem 0; }
+    .search-result-item .sri-text { font-size: 0.85rem; color: var(--text-muted); }
+    mark { background: rgba(196,124,58,0.3); border-radius: 2px; padding: 0 2px; }
+
+    /* ============================================================
+       SECTIONS COMMON
+    ============================================================ */
+    section { padding: 100px 2rem 80px; }
+    .section-inner { max-width: 1160px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--accent); font-weight: 600; margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 700;
+      color: var(--text); line-height: 1.1; margin-bottom: 1.5rem;
+    }
+    .section-subtitle {
+      font-size: 1.05rem; color: var(--text-muted); line-height: 1.8;
+      max-width: 680px;
+    }
+    .sep { width: 60px; height: 3px; background: var(--accent); margin: 1.5rem 0; }
+
+    /* scroll reveal */
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    #hero {
+      min-height: 100vh; display: flex; flex-direction: column;
+      justify-content: flex-end; position: relative; overflow: hidden;
+      padding: 0;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(180deg, rgba(17,14,10,0.1) 0%, rgba(17,14,10,0.7) 100%),
+        url('https://upload.wikimedia.org/wikipedia/commons/3/35/%D0%9F%D1%80%D0%B8%D0%B2%D0%BE%D0%BA%D0%B7%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F_%D0%BF%D0%BB%D0%BE%D1%89%D0%B0%D0%B4%D1%8C_%D0%94%D0%B8%D0%BC%D0%B8%D1%82%D1%80%D0%BE%D0%B2%D0%B3%D1%80%D0%B0%D0%B4.jpg') center/cover no-repeat;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(139,58,26,0.3) 0%, transparent 60%);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 3rem 3rem 5rem;
+      max-width: 860px;
+    }
+    .hero-tag {
+      display: inline-block; padding: 0.4rem 1rem;
+      border: 1px solid rgba(201,168,76,0.5); border-radius: 100px;
+      font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.5rem;
+      animation: fadeDown 1s 0.2s both;
+    }
+    .hero-title {
+      font-size: clamp(3rem, 7vw, 6rem);
+      color: #fff; font-weight: 700; line-height: 1.02;
+      margin-bottom: 1.2rem;
+      animation: fadeDown 1s 0.4s both;
+    }
+    .hero-title em { color: var(--gold); font-style: normal; display: block; }
+    .hero-desc {
+      font-size: 1.1rem; color: rgba(255,255,255,0.8);
+      line-height: 1.8; max-width: 560px; margin-bottom: 2.5rem;
+      animation: fadeDown 1s 0.6s both;
+    }
+    .hero-btns {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      animation: fadeDown 1s 0.8s both;
+    }
+    .btn-primary {
+      padding: 0.85rem 2rem; background: var(--accent);
+      color: #fff; border-radius: 8px; font-weight: 600;
+      font-size: 0.9rem; letter-spacing: 0.04em;
+      transition: all var(--transition); border: none; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+    }
+    .btn-primary:hover {
+      background: var(--accent2); color: #fff; text-decoration: none;
+      transform: translateY(-2px); box-shadow: 0 8px 24px rgba(139,58,26,0.4);
+    }
+    .btn-outline {
+      padding: 0.85rem 2rem; background: transparent;
+      color: #fff; border-radius: 8px; font-weight: 600;
+      font-size: 0.9rem; letter-spacing: 0.04em;
+      border: 1px solid rgba(255,255,255,0.4);
+      transition: all var(--transition); cursor: pointer;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+    }
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.1); text-decoration: none;
+      transform: translateY(-2px);
+    }
+    .hero-stats {
+      position: absolute; bottom: 4rem; right: 3rem; z-index: 2;
+      display: flex; gap: 2rem;
+      animation: fadeLeft 1s 1s both;
+    }
+    .stat-item { text-align: right; }
+    .stat-num {
+      font-family: var(--serif); font-size: 2.5rem; font-weight: 700;
+      color: var(--gold); line-height: 1;
+    }
+    .stat-lbl { font-size: 0.75rem; color: rgba(255,255,255,0.6); letter-spacing: 0.08em; }
+    .hero-scroll-hint {
+      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+      z-index: 2; display: flex; flex-direction: column; align-items: center;
+      gap: 0.5rem; color: rgba(255,255,255,0.5); font-size: 0.7rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      animation: bounce 2s infinite 1.5s;
+    }
+    .hero-scroll-hint::after {
+      content: '↓'; font-size: 1.2rem;
+    }
+    @keyframes fadeDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: none; } }
+    @keyframes fadeLeft { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: none; } }
+    @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(6px); } }
+
+    /* ============================================================
+       INTRO
+    ============================================================ */
+    #intro { background: var(--bg); padding: 80px 2rem; }
+    .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .intro-img-wrap {
+      position: relative;
+    }
+    .intro-img-wrap img {
+      border-radius: var(--radius); width: 100%; height: 420px;
+      object-fit: cover; box-shadow: var(--shadow);
+    }
+    .intro-img-badge {
+      position: absolute; bottom: -1.5rem; right: -1.5rem;
+      background: var(--accent); color: #fff; padding: 1.25rem 1.5rem;
+      border-radius: var(--radius); text-align: center;
+      box-shadow: var(--shadow);
+    }
+    .intro-img-badge .num { font-family: var(--serif); font-size: 2.5rem; font-weight: 700; line-height: 1; }
+    .intro-img-badge .lbl { font-size: 0.7rem; opacity: 0.85; letter-spacing: 0.06em; }
+    .intro-text p { line-height: 1.9; color: var(--text-muted); margin-bottom: 1rem; font-size: 1rem; }
+    .facts-row { display: flex; gap: 1.5rem; margin-top: 2rem; flex-wrap: wrap; }
+    .fact-chip {
+      padding: 0.5rem 1rem; background: var(--bg2); border-radius: 100px;
+      font-size: 0.82rem; font-weight: 500; color: var(--text-muted);
+      border: 1px solid var(--border);
+    }
+    .fact-chip strong { color: var(--text); }
+
+    /* ============================================================
+       HISTORY SECTION
+    ============================================================ */
+    #history { background: var(--bg2); }
+    .history-intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-bottom: 5rem; align-items: start; }
+    /* History blocks grid */
+    .history-blocks { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 5rem; }
+    .history-block {
+      background: var(--surface); border-radius: var(--radius); padding: 2rem;
+      border: 1px solid var(--border); transition: transform var(--transition), box-shadow var(--transition);
+      position: relative; overflow: hidden;
+    }
+    .history-block::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+    }
+    .history-block:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .history-block h3 { font-family: var(--serif); font-size: 1.4rem; margin-bottom: 0.75rem; }
+    .history-block p { color: var(--text-muted); line-height: 1.8; font-size: 0.95rem; }
+    .hb-icon { font-size: 2rem; margin-bottom: 1rem; }
+
+    /* Timeline */
+    .timeline-title { font-family: var(--serif); font-size: 2rem; font-weight: 700; margin-bottom: 3rem; text-align: center; }
+    .timeline {
+      position: relative; padding: 2rem 0;
+    }
+    .timeline::before {
+      content: ''; position: absolute; left: 50%; top: 0; bottom: 0;
+      width: 2px; background: linear-gradient(180deg, var(--accent), var(--accent2), var(--gold));
+      transform: translateX(-50%);
+    }
+    .tl-item {
+      display: flex; align-items: flex-start; margin-bottom: 3rem;
+      position: relative;
+    }
+    .tl-item:nth-child(odd) { flex-direction: row; }
+    .tl-item:nth-child(even) { flex-direction: row-reverse; }
+    .tl-content {
+      width: calc(50% - 3rem);
+      background: var(--surface); border-radius: var(--radius);
+      padding: 1.5rem; border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      transition: transform var(--transition);
+    }
+    .tl-content:hover { transform: translateY(-3px); }
+    .tl-item:nth-child(odd) .tl-content { margin-right: auto; text-align: right; }
+    .tl-item:nth-child(even) .tl-content { margin-left: auto; text-align: left; }
+    .tl-year {
+      font-family: var(--serif); font-size: 1.8rem; font-weight: 700;
+      color: var(--accent); margin-bottom: 0.4rem;
+    }
+    .tl-event { font-weight: 600; margin-bottom: 0.5rem; }
+    .tl-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; }
+    .tl-dot {
+      width: 16px; height: 16px; border-radius: 50%;
+      background: var(--accent); border: 3px solid var(--bg2);
+      position: absolute; left: 50%; transform: translateX(-50%);
+      margin-top: 1.5rem; z-index: 2; box-shadow: 0 0 0 4px rgba(139,58,26,0.2);
+    }
+    /* History images */
+    .history-images { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 4rem; }
+    .hist-img-card {
+      border-radius: var(--radius); overflow: hidden;
+      box-shadow: var(--shadow); position: relative;
+    }
+    .hist-img-card img { width: 100%; height: 220px; object-fit: cover; display: block; transition: transform 0.5s ease; }
+    .hist-img-card:hover img { transform: scale(1.05); }
+    .hist-img-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(17,14,10,0.85));
+      color: #fff; padding: 1.5rem 1rem 0.75rem;
+      font-size: 0.85rem;
+    }
+
+    /* ============================================================
+       INFO CENTER
+    ============================================================ */
+    #info { background: var(--bg); }
+    .info-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+    .info-card {
+      background: var(--surface); border-radius: var(--radius);
+      border: 1px solid var(--border); overflow: hidden;
+      transition: all var(--transition); cursor: pointer;
+    }
+    .info-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .info-card-head {
+      padding: 2rem; display: flex; align-items: center; gap: 1rem;
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+    }
+    .info-card-icon {
+      width: 52px; height: 52px; border-radius: 12px;
+      background: var(--accent); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; flex-shrink: 0;
+    }
+    .info-card-head h3 { font-family: var(--serif); font-size: 1.25rem; }
+    .info-card-body { padding: 1.5rem; }
+    .info-card-body p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.8; }
+    .info-card-body .info-detail {
+      display: none; margin-top: 1rem; padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+    .info-card.expanded .info-detail { display: block; }
+    .info-card-body .info-detail p { font-size: 0.88rem; }
+    .btn-more {
+      margin-top: 1rem; padding: 0.5rem 1.25rem;
+      background: transparent; border: 1px solid var(--accent);
+      color: var(--accent); border-radius: 6px; font-size: 0.82rem;
+      cursor: pointer; font-weight: 500;
+      transition: all var(--transition);
+    }
+    .btn-more:hover { background: var(--accent); color: #fff; }
+
+    /* ============================================================
+       GALLERY
+    ============================================================ */
+    #gallery { background: var(--bg2); }
+    /* Slider */
+    .slider-wrap {
+      position: relative; overflow: hidden; border-radius: var(--radius);
+      box-shadow: var(--shadow); margin-bottom: 2rem;
+    }
+    .slider-track {
+      display: flex; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .slide {
+      min-width: 100%; position: relative;
+    }
+    .slide img { width: 100%; height: 500px; object-fit: cover; display: block; }
+    .slide-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 2rem;
+      background: linear-gradient(transparent, rgba(17,14,10,0.8));
+      color: #fff;
+    }
+    .slide-caption h4 { font-family: var(--serif); font-size: 1.4rem; }
+    .slide-caption p { font-size: 0.85rem; opacity: 0.8; margin-top: 0.25rem; }
+    .slider-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,0.9);
+      border: none; cursor: pointer; font-size: 1.2rem; color: var(--text);
+      display: flex; align-items: center; justify-content: center;
+      transition: all var(--transition); box-shadow: var(--shadow);
+      z-index: 5;
+    }
+    .slider-btn:hover { background: var(--accent); color: #fff; }
+    .slider-btn.prev { left: 1rem; }
+    .slider-btn.next { right: 1rem; }
+    .slider-dots {
+      position: absolute; bottom: 1rem; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 0.5rem; z-index: 5;
+    }
+    .slider-dot {
+      width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.5);
+      cursor: pointer; transition: all var(--transition); border: none;
+    }
+    .slider-dot.active { background: var(--gold); width: 24px; border-radius: 4px; }
+    /* Thumbnails */
+    .gallery-thumbs {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1rem;
+    }
+    .thumb {
+      position: relative; border-radius: 8px; overflow: hidden; cursor: pointer;
+      aspect-ratio: 4/3;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    }
+    .thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+    .thumb:hover img { transform: scale(1.08); }
+    .thumb-overlay {
+      position: absolute; inset: 0; background: rgba(17,14,10,0.5);
+      display: flex; align-items: flex-end; padding: 0.75rem;
+      opacity: 0; transition: opacity var(--transition);
+    }
+    .thumb:hover .thumb-overlay { opacity: 1; }
+    .thumb-overlay span { font-size: 0.75rem; color: #fff; line-height: 1.3; }
+    /* Lightbox */
+    #lightbox {
+      position: fixed; inset: 0; z-index: 3000;
+      background: rgba(10,7,4,0.96);
+      display: none; align-items: center; justify-content: center;
+      flex-direction: column; gap: 1rem;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox img { max-height: 80vh; max-width: 90vw; border-radius: 8px; box-shadow: 0 0 60px rgba(0,0,0,0.5); }
+    .lightbox-caption { color: rgba(255,255,255,0.8); font-size: 1rem; }
+    .lightbox-close {
+      position: absolute; top: 1.5rem; right: 1.5rem;
+      width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.1);
+      border: none; color: #fff; font-size: 1.4rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background var(--transition);
+    }
+    .lightbox-close:hover { background: var(--accent); }
+
+    /* ============================================================
+       GUIDE / MAP
+    ============================================================ */
+    #guide { background: var(--bg); }
+    .filter-bar { display: flex; gap: 0.75rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+    .filter-btn {
+      padding: 0.5rem 1.25rem; border-radius: 100px; font-size: 0.82rem;
+      font-weight: 600; border: 2px solid var(--border); background: transparent;
+      color: var(--text-muted); cursor: pointer; transition: all var(--transition);
+      letter-spacing: 0.04em;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--accent); color: #fff; border-color: var(--accent);
+    }
+    .attractions-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+    .attraction-card {
+      background: var(--surface); border-radius: var(--radius);
+      border: 1px solid var(--border); overflow: hidden;
+      transition: all var(--transition);
+    }
+    .attraction-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .attraction-card.hidden { display: none; }
+    .attraction-img { position: relative; overflow: hidden; }
+    .attraction-img img { width: 100%; height: 200px; object-fit: cover; transition: transform 0.5s; }
+    .attraction-card:hover .attraction-img img { transform: scale(1.05); }
+    .attraction-type {
+      position: absolute; top: 0.75rem; left: 0.75rem;
+      padding: 0.25rem 0.75rem; border-radius: 100px; font-size: 0.7rem;
+      font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .type-museum { background: rgba(139,58,26,0.9); color: #fff; }
+    .type-park { background: rgba(52,120,60,0.9); color: #fff; }
+    .type-monument { background: rgba(60,90,140,0.9); color: #fff; }
+    .type-church { background: rgba(120,80,20,0.9); color: #fff; }
+    .attraction-body { padding: 1.5rem; }
+    .attraction-body h3 { font-family: var(--serif); font-size: 1.15rem; margin-bottom: 0.4rem; }
+    .attraction-addr { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.3rem; }
+    .attraction-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1rem; }
+    .btn-map {
+      padding: 0.5rem 1.25rem; background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 6px; font-size: 0.82rem; cursor: pointer; font-weight: 500;
+      color: var(--text); transition: all var(--transition);
+      display: inline-flex; align-items: center; gap: 0.4rem;
+    }
+    .btn-map:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+    /* Map modal */
+    #map-modal {
+      position: fixed; inset: 0; z-index: 3000; background: rgba(10,7,4,0.9);
+      display: none; align-items: center; justify-content: center;
+    }
+    #map-modal.open { display: flex; }
+    .map-modal-inner {
+      background: var(--surface); border-radius: 16px; width: min(800px, 95vw);
+      overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .map-modal-header {
+      padding: 1.25rem 1.5rem; display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+    .map-modal-header h4 { font-family: var(--serif); font-size: 1.3rem; }
+    #map-iframe { width: 100%; height: 400px; border: none; display: block; }
+
+    /* ============================================================
+       CONTACT
+    ============================================================ */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; }
+    .contact-info h2 { font-family: var(--serif); font-size: 2.5rem; margin-bottom: 1.5rem; }
+    .contact-info p { color: var(--text-muted); line-height: 1.9; margin-bottom: 1.5rem; }
+    .contact-info ul { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+    .contact-info ul li { display: flex; align-items: center; gap: 0.75rem; font-size: 0.9rem; color: var(--text-muted); }
+    .contact-info ul li span:first-child { font-size: 1.2rem; }
+    .social-btns { display: flex; gap: 0.75rem; margin-top: 2rem; flex-wrap: wrap; }
+    .btn-social {
+      padding: 0.6rem 1.25rem; border-radius: 8px; font-size: 0.82rem;
+      font-weight: 600; cursor: pointer; border: none; transition: all var(--transition);
+      display: inline-flex; align-items: center; gap: 0.4rem;
+    }
+    .btn-social.vk { background: #4680C2; color: #fff; }
+    .btn-social.vk:hover { background: #3a6fa8; transform: translateY(-2px); }
+    .btn-social.tg { background: #26A5E4; color: #fff; }
+    .btn-social.tg:hover { background: #1e94d3; transform: translateY(-2px); }
+    .btn-social.ok { background: #F17D00; color: #fff; }
+    .btn-social.ok:hover { background: #d96e00; transform: translateY(-2px); }
+    /* Form */
+    .contact-form { background: var(--surface); border-radius: var(--radius); padding: 2.5rem; border: 1px solid var(--border); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+    .form-group label { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em; color: var(--text-muted); }
+    .form-group input, .form-group textarea, .form-group select {
+      padding: 0.85rem 1rem; border: 1px solid var(--border); border-radius: 8px;
+      background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 0.9rem;
+      outline: none; transition: border-color var(--transition);
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--accent); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-success {
+      display: none; padding: 1rem; background: rgba(52,120,60,0.1);
+      border: 1px solid rgba(52,120,60,0.3); border-radius: 8px;
+      color: #2a6e30; text-align: center; margin-top: 1rem; font-size: 0.9rem;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      background: var(--text); color: rgba(255,255,255,0.6);
+      padding: 3rem 2rem 2rem;
+    }
+    .footer-inner { max-width: 1160px; margin: 0 auto; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 2.5rem; }
+    .footer-brand { font-family: var(--serif); font-size: 1.5rem; color: #fff; margin-bottom: 1rem; }
+    .footer-brand span { color: var(--gold); }
+    .footer-col p { font-size: 0.85rem; line-height: 1.8; }
+    .footer-col h4 { font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; margin-bottom: 1rem; font-family: var(--sans); }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-col ul a { font-size: 0.85rem; color: rgba(255,255,255,0.5); transition: color var(--transition); }
+    .footer-col ul a:hover { color: var(--gold); text-decoration: none; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: gap; gap: 1rem; }
+    .footer-bottom p { font-size: 0.8rem; }
+
+    /* ============================================================
+       UTILITY
+    ============================================================ */
+    .back-top {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 100;
+      width: 44px; height: 44px; border-radius: 50%; background: var(--accent);
+      color: #fff; border: none; cursor: pointer; font-size: 1.1rem;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transform: translateY(10px);
+      transition: all var(--transition); box-shadow: var(--shadow);
+    }
+    .back-top.visible { opacity: 1; transform: none; }
+    .back-top:hover { background: var(--accent2); transform: translateY(-3px); }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 960px) {
+      .intro-grid, .history-intro-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .intro-img-badge { right: 0.5rem; bottom: -1rem; }
+      .history-blocks { grid-template-columns: 1fr; }
+      .timeline::before { left: 1.5rem; }
+      .tl-item { flex-direction: column !important; padding-left: 4rem; }
+      .tl-content { width: 100%; text-align: left !important; margin: 0 !important; }
+      .tl-dot { left: 1.5rem; }
+      .history-images { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    }
+    @media (max-width: 680px) {
+      section { padding: 70px 1.25rem 60px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .hero-stats { position: static; flex-wrap: wrap; gap: 1rem; padding: 1rem 2rem 2rem; }
+      .hero-content { padding: 2rem 1.5rem 2rem; }
+      .hero-title { font-size: 2.8rem; }
+      .slide img { height: 280px; }
+      .history-images { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav id="navbar">
+  <a href="#hero" class="nav-brand">Димитро<span>вград</span></a>
+  <ul class="nav-links">
+    <li><a href="#intro">О городе</a></li>
+    <li><a href="#history">История</a></li>
+    <li><a href="#info">Справка</a></li>
+    <li><a href="#gallery">Галерея</a></li>
+    <li><a href="#guide">Путеводитель</a></li>
+    
+  </ul>
+  <div class="nav-controls">
+    <button class="btn-icon" id="search-btn" title="Поиск">🔍</button>
+    <button class="btn-icon" id="theme-btn" title="Сменить тему">🌙</button>
+    <button class="hamburger" id="hamburger-btn" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="nav-mobile" id="nav-mobile">
+  <a href="#intro" class="mobile-link">О городе</a>
+  <a href="#history" class="mobile-link">История</a>
+  <a href="#info" class="mobile-link">Справочный центр</a>
+  <a href="#gallery" class="mobile-link">Галерея</a>
+  <a href="#guide" class="mobile-link">Путеводитель</a>
+  
+</div>
+
+<!-- SEARCH OVERLAY -->
+<div id="search-overlay">
+  <div class="search-box">
+    <h3>Поиск по сайту</h3>
+    <div class="search-input-wrap">
+      <input type="search" id="search-input" placeholder="Введите запрос... например «НИИАР», «климат», «история»">
+      <button class="search-clear" id="search-close">✕</button>
+    </div>
+    <div id="search-results"></div>
+  </div>
+</div>
+
+<!-- ====================== HERO ====================== -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-tag">✦ Город в Ульяновской области</div>
+    <h1 class="hero-title">
+      Димитровград
+      <em>История & Культура</em>
+    </h1>
+    <p class="hero-desc">
+      Город на берегу Куйбышевского водохранилища с трёхвековой историей, 
+      от чувашских деревень и винокуренных заводов — до атомных реакторов 
+      и спортивной столицы Ульяновской области.
+    </p>
+    <div class="hero-btns">
+      <a href="#history" class="btn-primary">📖 Читать историю</a>
+      <a href="#guide" class="btn-outline">🗺️ Путеводитель</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">1698</div>
+      <div class="stat-lbl">Год основания</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">~110 тыс.</div>
+      <div class="stat-lbl">Жителей</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">103 км²</div>
+      <div class="stat-lbl">Площадь округа</div>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">Листайте вниз</div>
+</section>
+
+<!-- ====================== INTRO ====================== -->
+<section id="intro">
+  <div class="section-inner intro-grid">
+    <div class="intro-img-wrap reveal">
+      <img src="https://www.bulgariantimes.co.uk/wp-content/uploads/2023/07/Dimitrovgrad-1.jpg"
+           alt="Вид на Димитровград">
+      <div class="intro-img-badge">
+        <div class="num">326</div>
+        <div class="lbl">лет истории</div>
+      </div>
+    </div>
+    <div class="intro-text reveal">
+      <div class="section-label">О городе</div>
+      <h2 class="section-title">Жемчужина Поволжья</h2>
+      <div class="sep"></div>
+      <p>
+        <strong>Димитровград</strong> (до 1972 года — Мелекесс) — город в Ульяновской области России, 
+        расположенный на берегу Черемшанского залива Куйбышевского водохранилища 
+        в месте впадения реки Большой Черемшан. Он находится в 79 км к востоку от Ульяновска.
+      </p>
+      <p>
+        Сегодня Димитровград — второй по значению город Ульяновской области, научный и промышленный 
+        центр, где расположен Научно-исследовательский институт атомных реакторов (НИИАР). 
+        Западная часть города, выстроенная среди сосновых боров, получила неофициальное название 
+        «город в лесу».
+      </p>
+      <p>
+        В 2007 году Димитровград был объявлен <em>спортивной столицей</em> Ульяновской области — 
+        здесь активно развиваются 26 видов спорта, живут три призёра Олимпийских игр.
+      </p>
+      <div class="facts-row">
+        <div class="fact-chip"><strong>Регион:</strong> Ульяновская обл.</div>
+        <div class="fact-chip"><strong>Климат:</strong> умеренно-континентальный</div>
+        <div class="fact-chip"><strong>Координаты:</strong> 54°13′ с.ш. 49°34′ в.д.</div>
+        <div class="fact-chip"><strong>Статус:</strong> городской округ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== HISTORY ====================== -->
+<section id="history">
+  <div class="section-inner">
+    <div class="history-intro-grid reveal">
+      <div>
+        <div class="section-label">История города</div>
+        <h2 class="section-title">От Мелекесса до Димитровграда</h2>
+        <div class="sep"></div>
+        <p class="section-subtitle">
+          Три с лишним века назад на левом берегу реки Мелекесски появилась деревня ясашных чувашей. 
+          Сегодня это современный город с атомными реакторами, театрами и олимпийскими чемпионами.
+        </p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1rem;justify-content:center">
+        <img src="https://etoretro.ru/data/media/2071/1416220754023.jpg" 
+             alt="Старый Мелекесс" 
+             style="border-radius:12px;width:100%;height:220px;object-fit:cover;box-shadow:var(--shadow)"
+            >
+      </div>
+    </div>
+
+    <!-- History Blocks -->
+    <div class="history-blocks">
+      <div class="history-block reveal">
+        <div class="hb-icon">🏡</div>
+        <h3>Основание города</h3>
+        <p>
+          Официальной датой основания принята <strong>1698 год</strong> — первое упоминание деревни ясашных чувашей 
+          Чувашский Мелекес на левом берегу реки Мелекесски. Документально она зафиксирована 
+          в «Подлинной межевой книге земель князя Меншикова» 1706 года. 
+          Именно с этого поселения, давшего имя реке, а через неё — будущему городу, 
+          началась трёхвековая история Димитровграда. Дата вписана в Устав города.
+        </p>
+      </div>
+      <div class="history-block reveal">
+        <div class="hb-icon">🔄</div>
+        <h3>Переименования</h3>
+        <p>
+          Населённый пункт несколько раз менял свой статус и название. Изначально — деревня, 
+          затем посёлок при винокуренном заводе. В 1877 году по <em>Высочайшему повелению 
+          императора Александра II</em> Мелекесский завод Ставропольского уезда Самарской губернии 
+          получил статус посада и имя <strong>Мелекесс</strong>. В 1919 году — статус города. 
+          <strong>15 июля 1972 года</strong> переименован в Димитровград в честь 
+          90-летия болгарского коммуниста Георгия Димитрова.
+        </p>
+      </div>
+      <div class="history-block reveal">
+        <div class="hb-icon">🏭</div>
+        <h3>Промышленное развитие</h3>
+        <p>
+          История города неотделима от развития производства. В 1767 году Указом 
+          Екатерины II здесь открылись казённые <strong>винокуренные заводы</strong> — 
+          на протяжении десятилетий главная отрасль экономики. В 1910-е построена железная дорога. 
+          В конце 1950-х был основан <strong>НИИАР</strong> — Научно-исследовательский институт 
+          атомных реакторов — и вокруг него выстроен целый «Соцгород». 
+          Мелекесс превратился в один из научных центров страны.
+        </p>
+      </div>
+      <div class="history-block reveal">
+        <div class="hb-icon">⚔️</div>
+        <h3>Война и эвакуация</h3>
+        <p>
+          В годы Великой Отечественной войны Мелекесс принял более 
+          <strong>шести тысяч эвакуированных</strong>, развернул три госпиталя. 
+          Здесь нашли приют оборудование Витебской чулочно-трикотажной фабрики имени Клары Цеткин, 
+          а также фонды Государственной публичной библиотеки имени Салтыкова-Щедрина, 
+          эвакуированные из Ленинграда. 
+          19 января 1943 года образована Ульяновская область, в состав которой 
+          вошёл город Мелекесс.
+        </p>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <h2 class="timeline-title reveal">Хронология событий</h2>
+    <div class="timeline reveal">
+      <div class="tl-item">
+        <div class="tl-content">
+          <div class="tl-year">1698</div>
+          <div class="tl-event">Первое поселение</div>
+          <div class="tl-desc">Деревня Чувашский Мелекес основана ясашными чувашами на левом берегу реки Мелекесски. Год принят официальной датой основания города.</div>
+        </div>
+        <div class="tl-dot"></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-content">
+          <div class="tl-year">1767</div>
+          <div class="tl-event">Винокуренные заводы</div>
+          <div class="tl-desc">По указу Екатерины II в Мелекессе открываются казённые винокуренные заводы, давшие толчок росту поселения и превратившие его в торгово-промышленный центр Поволжья.</div>
+        </div>
+        <div class="tl-dot"></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-content">
+          <div class="tl-year">1877</div>
+          <div class="tl-event">Статус посада</div>
+          <div class="tl-desc">По Высочайшему повелению Александра II Мелекесский завод Ставропольского уезда Самарской губернии переименован в посад Мелекесс. К 1913 году население достигло 16 тысяч человек.</div>
+        </div>
+        <div class="tl-dot"></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-content">
+          <div class="tl-year">1919</div>
+          <div class="tl-event">Статус города</div>
+          <div class="tl-desc">Мелекесс получает официальный статус города. В 1910-е годы проложена железная дорога и построен Симбирский мост через Волгу, что существенно ускорило развитие деревообработки.</div>
+        </div>
+        <div class="tl-dot"></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-content">
+          <div class="tl-year">1943</div>
+          <div class="tl-event">Ульяновская область</div>
+          <div class="tl-desc">19 января 1943 года образована Ульяновская область. Мелекесс вошёл в её состав. В годы войны город принял тысячи эвакуированных, развернул три военных госпиталя.</div>
+        </div>
+        <div class="tl-dot"></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-content">
+          <div class="tl-year">1956</div>
+          <div class="tl-event">Куйбышевское водохранилище</div>
+          <div class="tl-desc">После создания Куйбышевского водохранилища река Черемшан стала судоходной. Мелекесс оказался на берегу залива, что повлияло на облик и развитие города.</div>
+        </div>
+        <div class="tl-dot"></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-content">
+          <div class="tl-year">1958</div>
+          <div class="tl-event">Основание НИИАР</div>
+          <div class="tl-desc">В конце 1950-х годов основан Научно-исследовательский институт атомных реакторов (НИИАР). Вокруг него возник целый западный жилой район — «Соцгород» в сосновых борах.</div>
+        </div>
+        <div class="tl-dot"></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-content">
+          <div class="tl-year">1972</div>
+          <div class="tl-event">Переименование в Димитровград</div>
+          <div class="tl-desc">15 июля 1972 года Мелекесс переименован в Димитровград — в честь 90-летия Георгия Димитрова, Генерального секретаря ЦК БКП и деятеля Коминтерна (1882–1949).</div>
+        </div>
+        <div class="tl-dot"></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-content">
+          <div class="tl-year">2007</div>
+          <div class="tl-event">Спортивная столица</div>
+          <div class="tl-desc">Димитровград объявлен спортивной столицей Ульяновской области. В городе действуют 4 стадиона, Дворец спорта, Федеральный центр бокса. Здесь живут три олимпийских призёра.</div>
+        </div>
+        <div class="tl-dot"></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-content">
+          <div class="tl-year">2012</div>
+          <div class="tl-event">Мелекесская епархия</div>
+          <div class="tl-desc">26 июля 2012 года решением Священного Синода РПЦ Димитровград становится кафедральным центром вновь образованной Мелекесской епархии, выделенной из Симбирской.</div>
+        </div>
+        <div class="tl-dot"></div>
+      </div>
+    </div>
+
+    <!-- Images with captions -->
+    <div class="history-images">
+      <div class="hist-img-card reveal">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBjPs6ZHpHfo35zg5kg2GAIo5J0WdYf38u0w&s"
+             alt="НИИАР — Научно-исследовательский институт атомных реакторов"
+            >
+        <div class="hist-img-caption">НИИАР — основан в конце 1950-х, крупнейший ядерный исследовательский центр</div>
+      </div>
+      <div class="hist-img-card reveal">
+        <img src="https://lh3.googleusercontent.com/gps-cs-s/AHVAweo-OLIQVRQ-lX55ckPAikGALKT0wdAMbJd_kARXeJCVxXfATaUxPzww1HziC5zwddjKskB4ASNDTa6Jp6Uy2xjK0-Wgu5DYbP7zT4TYWWrJrSWcQ4fc_Xk_yPRvJIHPx360Tamn=s680-w680-h510"
+             alt="Городской театр Димитровграда"
+            >
+        <div class="hist-img-caption">Городской театр — архитектурный памятник в центре «Старого города»</div>
+      </div>
+      <div class="hist-img-card reveal">
+        <img src="data:image/jpeg;base64,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"
+             alt="Набережная Черемшанского залива"
+            >
+        <div class="hist-img-caption">Памятник Рублю</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== INFO CENTER ====================== -->
+<section id="info">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Справочный центр</div>
+      <h2 class="section-title">Всё о городе</h2>
+      <div class="sep"></div>
+      <p class="section-subtitle">Нажмите «Подробнее» на любой карточке, чтобы увидеть расширенную информацию о разделе.</p>
+    </div>
+    <div class="info-cards">
+      <div class="info-card reveal">
+        <div class="info-card-head">
+          <div class="info-card-icon">🌍</div>
+          <h3>География</h3>
+        </div>
+        <div class="info-card-body">
+          <p>Димитровград расположен в левобережной части Ульяновской области, в Заволжье, в месте впадения рек Мелекесски и Большого Черемшана в Куйбышевское водохранилище. Высота рельефа — 50–100 м над уровнем моря.</p>
+          <div class="info-detail">
+            <p><strong>Расстояния:</strong> 79 км к востоку от Ульяновска, 118 км к северу от Самары. Площадь городского округа — 103,98 км², города — 40,5 км². Координаты: 54°13′ с.ш., 49°34′ в.д. Западная часть города построена среди сосновых боров и смешанных лесов, что определило её неофициальное название «город в лесу».</p>
+          </div>
+          <button class="btn-more" onclick="toggleCard(this)">Подробнее</button>
+        </div>
+      </div>
+      <div class="info-card reveal">
+        <div class="info-card-head">
+          <div class="info-card-icon">🌤️</div>
+          <h3>Климат</h3>
+        </div>
+        <div class="info-card-body">
+          <p>Климат Димитровграда — умеренно-континентальный с отчётливо выраженными сезонами. Холодная зима, жаркое засушливое лето, переменчивые весна и осень.</p>
+          <div class="info-detail">
+            <p>Средняя температура января около −13°C, июля — около +21°C. Годовое количество осадков составляет 400–500 мм. Летом периодически возможны засухи. Зимой характерен устойчивый снежный покров, нередки метели. Река Черемшан и залив Куйбышевского водохранилища смягчают климат в прилегающих кварталах.</p>
+          </div>
+          <button class="btn-more" onclick="toggleCard(this)">Подробнее</button>
+        </div>
+      </div>
+      <div class="info-card reveal">
+        <div class="info-card-head">
+          <div class="info-card-icon">👥</div>
+          <h3>Население</h3>
+        </div>
+        <div class="info-card-body">
+          <p>По данным на 2024 год, население Димитровграда составляет около 108 804 человек. На 1 января 2025 года город занимает 159-е место из 1 124 городов России по численности населения.</p>
+          <div class="info-detail">
+            <p>Экономически активное население города на начало 2010-х составляло 78 000 человек. В городе исторически проживают представители разных народностей: русские, татары, чуваши и другие. В советское время население значительно выросло в связи со строительством «Соцгорода» и НIIАР.</p>
+          </div>
+          <button class="btn-more" onclick="toggleCard(this)">Подробнее</button>
+        </div>
+      </div>
+      <div class="info-card reveal">
+        <div class="info-card-head">
+          <div class="info-card-icon">🏗️</div>
+          <h3>Экономика</h3>
+        </div>
+        <div class="info-card-body">
+          <p>Ключевое предприятие города — НИИАР (Научно-исследовательский институт атомных реакторов). Транспортный узел: железнодорожная станция, автодороги, связь с Москвой, Уфой, Самарой.</p>
+          <div class="info-detail">
+            <p>В начале 2000-х Димитровград неоднократно становился призёром всероссийских конкурсов по благоустройству. Функционируют крупные банки: Сбербанк, Россельхозбанк, Альфа-Банк, Совкомбанк. Железнодорожное сообщение соединяет город с Москвой (18–19 ч.), что обеспечивает возможности для грузовых перевозок. Развита малая торговля и сфера услуг.</p>
+          </div>
+          <button class="btn-more" onclick="toggleCard(this)">Подробнее</button>
+        </div>
+      </div>
+      <div class="info-card reveal">
+        <div class="info-card-head">
+          <div class="info-card-icon">🎭</div>
+          <h3>Культура</h3>
+        </div>
+        <div class="info-card-body">
+          <p>В городе работают театр, краеведческий музей, галереи, библиотеки, культурно-досуговые центры. Центральная часть официально признана историческим памятником и носит имя «Старый город».</p>
+          <div class="info-detail">
+            <p>Димитровградский краеведческий музей основан в 1960-х, с 1996 года — муниципальное учреждение. Городской театр отреставрирован. В 2016 году путеводитель «От Мелекесса до Димитровграда» получил спецдиплом «За любовь к родному городу» на III Всероссийской туристской премии «Маршрут года». 26 июля 2012 года образована Мелекесская епархия РПЦ с кафедрой в Димитровграде.</p>
+          </div>
+          <button class="btn-more" onclick="toggleCard(this)">Подробнее</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== GALLERY ====================== -->
+<section id="gallery">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Фотогалерея</div>
+      <h2 class="section-title">Образы города</h2>
+      <div class="sep"></div>
+    </div>
+
+    <!-- SLIDER -->
+    <div class="slider-wrap reveal">
+      <div class="slider-track" id="slider-track">
+        <div class="slide">
+          <img src="https://dimablondin.ru/images/new/1381782858.jpg"
+               alt="Черемшанский залив">
+          <div class="slide-caption">
+            <h4>Черемшанский залив</h4>
+            <p>Живописный берег Куйбышевского водохранилища в черте города</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="https://ic.pics.livejournal.com/zdorovs/16627846/985307/985307_original.jpg"
+               alt="Панорама Димитровграда">
+          <div class="slide-caption">
+            <h4>Панорама города</h4>
+            <p>Вид на центральную часть — исторический «Старый город»</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="https://www.atomic-energy.ru/files/images/2019/07/niiar-panorama.jpg"
+               alt="НIIАР">
+          <div class="slide-caption">
+            <h4>НИИАР — атомный институт</h4>
+            <p>Научно-исследовательский институт атомных реакторов — гордость города</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/04/72/a6/4a/caption.jpg?w=1200&h=-1&s=1"
+               alt="Театр">
+          <div class="slide-caption">
+            <h4>Городской театр</h4>
+            <p>Отреставрированный театр в центре исторической части города</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="https://avatars.mds.yandex.net/get-altay/14782168/2a0000019996b8bc14e0ce70958088a1aa99/orig"
+               alt="Набережная">
+          <div class="slide-caption">
+            <h4>Алея вечной славы</h4>
+            <p>10 сентября 2005 года в честь 60-летия Великой Победы по инициативе ветеранов войны и труда в рамках сетевого марафона «Культурная столица Поволжья» была открыта Аллея Славы.</p>
+          </div>
+        </div>
+      </div>
+      <button class="slider-btn prev" id="slide-prev">&#8592;</button>
+      <button class="slider-btn next" id="slide-next">&#8594;</button>
+      <div class="slider-dots" id="slider-dots"></div>
+    </div>
+
+    <!-- THUMBNAILS -->
+    <div class="gallery-thumbs reveal">
+      <div class="thumb" onclick="openLightbox('https://img-fotki.yandex.ru/get/6214/39927034.20/0_9f0b2_d095dad0_XL', 'Черемшанский залив')">
+        <img src="https://img-fotki.yandex.ru/get/6214/39927034.20/0_9f0b2_d095dad0_XL"
+             alt="Залив">
+        <div class="thumb-overlay"><span>Черемшанский залив</span></div>
+      </div>
+      <div class="thumb" onclick="openLightbox('https:https://ic.pics.livejournal.com/zdorovs/16627846/973570/973570_original.jpg', 'Панорама Димитровграда')">
+        <img src="https://ic.pics.livejournal.com/zdorovs/16627846/973570/973570_original.jpg"
+             alt="Панорама">
+        <div class="thumb-overlay"><span>Панорама города</span></div>
+      </div>
+      <div class="thumb" onclick="openLightbox('https://aif-s3.aif.ru/images/010/082/56c3e4c02a9d1273dc0a14b15fe119a6.jpg', 'Железнодорожный вокзал Димитровграда')">
+        <img src="https://aif-s3.aif.ru/images/010/082/56c3e4c02a9d1273dc0a14b15fe119a6.jpg"
+             alt="НIIАР">
+        <div class="thumb-overlay"><span>НИИАР</span></div>
+      </div>
+      <div class="thumb" onclick="openLightbox('https://dimitrovgrad-r73.gosweb.gosuslugi.ru/netcat_files/34/191/DSC04766_cmyk.jpg', 'Вокзал — ворота Димитровграда')">
+        <img src="https://dimitrovgrad-r73.gosweb.gosuslugi.ru/netcat_files/34/191/DSC04766_cmyk.jpg"
+             alt="Центр">
+        <div class="thumb-overlay"><span>Исторический центр</span></div>
+      </div>
+      <div class="thumb" onclick="openLightbox('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtWDu95tUPljS3I-nWpmIY1qN0cnTeIHWqJA&s', 'Спасо-Преображенская церковь')">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtWDu95tUPljS3I-nWpmIY1qN0cnTeIHWqJA&s" alt="Церковь">
+        <div class="thumb-overlay"><span>Спасо-Преображенская церковь</span></div>
+      </div>
+      <div class="thumb" onclick="openLightbox('https://images.fooby.ru/1/92/15/4557094', 'Городской парк культуры')">
+        <img src="https://images.fooby.ru/1/92/15/4557094" alt="Парк">
+        <div class="thumb-overlay"><span>Парк культуры и отдыха</span></div>
+      </div>
+      <div class="thumb" onclick="openLightbox('https://dimitrovgrad-r73.gosweb.gosuslugi.ru/netcat_files/generated/91/123/760x570/4486/8ef1b78ef551488a260b0753c523292c.jpg?crop=0%3A0%3A0%3A0&hash=3076cfe3aa04b5edd9342c3367cd4248&resize_mode=0&wm_m=0', 'Железнодорожный вокзал')">
+        <img src="https://dimitrovgrad-r73.gosweb.gosuslugi.ru/netcat_files/generated/91/123/760x570/4486/8ef1b78ef551488a260b0753c523292c.jpg?crop=0%3A0%3A0%3A0&hash=3076cfe3aa04b5edd9342c3367cd4248&resize_mode=0&wm_m=0" alt="Зима">
+        <div class="thumb-overlay"><span>Зима в городе</span></div>
+      </div>
+      <div class="thumb" onclick="openLightbox('https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcSEt7yPKbeScyVMLNfPqLm9tdCuAino7edu3DBlOHj5a9YKdY_SrER4AOfpg0JF5UR_KAb_rwV9qunuObi7xqLophc&s=19', 'Вид на водохранилище')">
+        <img src="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcSEt7yPKbeScyVMLNfPqLm9tdCuAino7edu3DBlOHj5a9YKdY_SrER4AOfpg0JF5UR_KAb_rwV9qunuObi7xqLophc&s=19" alt="Волга">
+        <div class="thumb-overlay"><span>Куйбышевское водохранилище</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightbox-img" src="" alt="">
+  <div class="lightbox-caption" id="lightbox-caption"></div>
+</div>
+
+<!-- ====================== GUIDE ====================== -->
+<section id="guide">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Путеводитель</div>
+      <h2 class="section-title">Достопримечательности</h2>
+      <div class="sep"></div>
+      <p class="section-subtitle">Выберите тип места и откройте для себя историю Димитровграда через её главные точки притяжения.</p>
+    </div>
+
+    <div class="filter-bar reveal">
+      <button class="filter-btn active" data-filter="all">Все</button>
+      <button class="filter-btn" data-filter="museum">Музеи</button>
+      <button class="filter-btn" data-filter="park">Парки</button>
+      <button class="filter-btn" data-filter="monument">Памятники</button>
+      <button class="filter-btn" data-filter="church">Храмы</button>
+    </div>
+
+    <div class="attractions-grid">
+      <!-- Card 1 -->
+      <div class="attraction-card reveal" data-type="museum">
+        <div class="attraction-img">
+          <span class="attraction-type type-museum">Музей</span>
+          <img src="https://lh3.googleusercontent.com/gps-cs-s/AHVAweoRrP7SO0EfqSXIUUR6x52XJ6KvHTDQyNb2a6rzLRW0KXfkmBjN6-vUjkN-1t9BHHtsrAAmBWiUbqbm2G4Za3vyGzUp8g94nocE48jMWzipzLxMh0BVml_KIHmVNRCHyxRRyFHsww=s680-w680-h510" alt="Краеведческий музей">
+        </div>
+        <div class="attraction-body">
+          <h3>Димитровградский краеведческий музей</h3>
+          <div class="attraction-addr">📍 ул. Прониной, 21</div>
+          <p class="attraction-desc">Основан в 1960-х годах. С 1996 года — муниципальное учреждение культуры. Хранит уникальную коллекцию предметов из истории Мелекесса и Димитровграда, археологические находки, документы эпохи.</p>
+          <button class="btn-map" onclick="openMap('Димитровградский краеведческий музей', 54.21879488779286, 49.61604791623131)">🗺️ Показать на карте</button>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="attraction-card reveal" data-type="monument">
+        <div class="attraction-img">
+          <span class="attraction-type type-monument">Памятник</span>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/c6/%D0%9E%D0%B1%D0%B5%D0%BB%D0%B8%D1%81%D0%BA_%D0%BD%D0%B0_%D0%B1%D0%B5%D1%80%D0%B5%D0%B3%D1%83_%D0%A7%D1%91%D1%80%D0%BD%D0%BE%D0%B3%D0%BE_%D0%BE%D0%B7%D0%B5%D1%80%D0%B0.jpg" alt="Обелиск">
+        </div>
+        <div class="attraction-body">
+          <h3>Обелиск на берегу Чёрного озера</h3>
+          <div class="attraction-addr">📍 берег Чёрного озера</div>
+          <p class="attraction-desc">Памятник революционерам, расстрелянным белогвардейцами в 1918 году. Один из старейших мемориальных объектов города, связанный с событиями Гражданской войны.</p>
+          <button class="btn-map" onclick="openMap('Чёрное озеро, Димитровград', 54.194955, 49.649266)">🗺️ Показать на карте</button>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="attraction-card reveal" data-type="church">
+        <div class="attraction-img">
+          <span class="attraction-type type-church">Храм</span>
+          <img src="https://lh3.googleusercontent.com/gps-cs-s/AHVAwep67BJYpughRxWxzvnnuWvsyY_Q27xE7nNrOnLdX1UKdK0iqGv0ljASgd-u1Q8uEr466WTof-8WSPnawrR-DdhnCLKLKGarKgiLHio_WGGoLIRI8I8USDJ6nosdSFw4TMH6F9eU=s680-w680-h510" alt="Спасо-Преображенская церковь">
+        </div>
+        <div class="attraction-body">
+          <h3>Спасо-Преображенская церковь</h3>
+          <div class="attraction-addr">📍 Центральный район</div>
+          <p class="attraction-desc">Кафедральный храм вновь образованной в 2012 году Мелекесской епархии Русской православной церкви. Памятник архитектуры и духовный центр города.</p>
+          <button class="btn-map" onclick="openMap('Спасо-Преображенская церковь Димитровград', 54.218683417572755, 49.622622057671876)">🗺️ Показать на карте</button>
+        </div>
+      </div>
+      <!-- Card 4 -->
+      <div class="attraction-card reveal" data-type="monument">
+        <div class="attraction-img">
+          <span class="attraction-type type-monument">Памятник</span>
+          <img src="https://culttourism.ru/data/photos/4/2/42017a99b48da32c6ddf8e9d98344afa.jpg" alt="Доходный дом Булгар">
+        </div>
+        <div class="attraction-body">
+          <h3>Доходный дом «Булгар»</h3>
+          <div class="attraction-addr">📍 пр. Димитрова</div>
+          <p class="attraction-desc">Бывший доходный дом с театром «Модерн» — памятник архитектуры начала XX века. Одно из ключевых исторических зданий «Старого города». Отреставрирован и носит имя «Булгар».</p>
+          <button class="btn-map" onclick="openMap('Доходный дом Булгар Димитровград', 54.219126, 49.627284)">🗺️ Показать на карте</button>
+        </div>
+      </div>
+      <!-- Card 5 -->
+      <div class="attraction-card reveal" data-type="park">
+        <div class="attraction-img">
+          <span class="attraction-type type-park">Парк</span>
+          <img src="https://sanatoria.ru/_i/s/big/264/02.jpg" alt="Сосновый бор">
+        </div>
+        <div class="attraction-body">
+          <h3>Сосновые боры Западного района</h3>
+          <div class="attraction-addr">📍 Западный жилой район</div>
+          <p class="attraction-desc">При строительстве Соцгорода в середине XX века строители сохранили крупные массивы сосновых боров и смешанных лесов. Именно это дало западной части неофициальное название «город в лесу».</p>
+          <button class="btn-map" onclick="openMap('Западный район Димитровград', 54.241735, 49.602178)">🗺️ Показать на карте</button>
+        </div>
+      </div>
+      <!-- Card 6 -->
+      <div class="attraction-card reveal" data-type="museum">
+        <div class="attraction-img">
+          <span class="attraction-type type-museum">Наука</span>
+          <img src="https://www.leninmemorial.ru/upload/medialibrary/f14/f140c03e232d0e1f80d1e9e6f3f5b7a5.jpg" alt="НIIАР">
+        </div>
+        <div class="attraction-body">
+          <h3>НИИАР — Атомный институт</h3>
+          <div class="attraction-addr">📍 Западный жилой район</div>
+          <p class="attraction-desc">Научно-исследовательский институт атомных реакторов — визитная карточка Димитровграда и крупнейший ядерно-исследовательский центр России. Основан в конце 1950-х при активном участии академика Курчатова.</p>
+          <button class="btn-map" onclick="openMap('НИИАР Димитровград', 54.18787952751807, 49.47584358280467)">🗺️ Показать на карте</button>
+        </div>
+      </div>
+      <!-- Card 7 -->
+      <div class="attraction-card reveal" data-type="monument">
+        <div class="attraction-img">
+          <span class="attraction-type type-monument">Памятник</span>
+          <img src="https://melekes.com/wp-content/uploads/2025/01/dscf2164-800x1200.jpg" alt="Памятник Калинину">
+        </div>
+        <div class="attraction-body">
+          <h3>Памятник М. И. Калинину</h3>
+          <div class="attraction-addr">📍 пл. Советов</div>
+          <p class="attraction-desc">Монумент «Всесоюзному старосте» М. И. Калинину — один из сохранившихся советских памятников на площади Советов, составляющих исторический ансамбль центра города.</p>
+          <button class="btn-map" onclick="openMap('площадь Советов Димитровград', 54.2269, 49.5685)">🗺️ Показать на карте</button>
+        </div>
+      </div>
+      <!-- Card 8 -->
+      <div class="attraction-card reveal" data-type="monument">
+        <div class="attraction-img">
+          <span class="attraction-type type-park">Памятник</span>
+          <img src="https://lh3.googleusercontent.com/gps-cs-s/AHVAwerU7kEOnoS3pAYHbv8A4P0f32GUYv-tEhw7XfweWtSyTv5S2pxmCi7Xl79okIhy7H7GNYbaQKyIJD6ySLI3hZ_3mMCPKXQ0xupkR1xHyT_pFghiCDFC-ww85JBXlJkHKliO6jF0wA=w408-h544-k-no" alt="Монумент вечной славы">
+        </div>
+        <div class="attraction-body">
+          <h3>Монумент Вечной славы</h3>
+          <div class="attraction-addr">📍 Монумент Вечной славы</div>
+          <p class="attraction-desc">Памятник воинам, погибшим в Великой Отечественной войне. Вечный огонь. Открыт 9 мая 1975 года на Аллее  Славы.</p>
+          <button class="btn-map" onclick="openMap('Набережная Димитровград', 54.22746345612534, 49.56792707133264)">🗺️ Показать на карте</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+<!-- Map Modal -->
+<div id="map-modal">
+  <div class="map-modal-inner">
+    <div class="map-modal-header">
+      <h4 id="map-modal-title">Карта</h4>
+      <button class="btn-icon" onclick="closeMap()">✕</button>
+    </div>
+    <iframe id="map-iframe" src="" allowfullscreen></iframe>
+  </div>
+</div>
+
+<!-- ====================== FOOTER ====================== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand">Димитро<span>вград</span></div>
+        <p>Информационный портал об истории города Димитровград Ульяновской области России. Материалы основаны на данных Википедии и открытых источниках.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Навигация</h4>
+        <ul>
+          <li><a href="#intro">О городе</a></li>
+          <li><a href="#history">История</a></li>
+          <li><a href="#info">Справочный центр</a></li>
+          <li><a href="#gallery">Галерея</a></li>
+          <li><a href="#guide">Путеводитель</a></li>
+          
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Разделы истории</h4>
+        <ul>
+          <li><a href="#history">Основание города</a></li>
+          <li><a href="#history">Мелекесс → Димитровград</a></li>
+          <li><a href="#history">НИИАР и наука</a></li>
+          <li><a href="#history">Годы войны</a></li>
+          <li><a href="#history">Хронология</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 История города Димитровград. Фотографии: Wikimedia Commons (CC BY-SA 3.0).</p>
+      <p>Сайт создан в образовательных и информационных целях.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button class="back-top" id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Наверх">↑</button>
+
+<!-- ============================================================
+     JAVASCRIPT
+============================================================ -->
+<script>
+// ---- Search Data ----
+const searchData = [
+  { section:'О городе', title:'Димитровград — общее описание', text:'Город в Ульяновской области, расположен на берегу Черемшанского залива Куйбышевского водохранилища при впадении реки Большой Черемшан. 79 км от Ульяновска.', anchor:'#intro' },
+  { section:'История', title:'Основание города (1698)', text:'Деревня Чувашский Мелекес, ясашные чуваши, первое упоминание в Подлинной межевой книге земель князя Меншикова (1706).', anchor:'#history' },
+  { section:'История', title:'Переименование в Димитровград (1972)', text:'15 июля 1972 года Мелекесс переименован в Димитровград в честь Георгия Димитрова, Генерального секретаря ЦК БКП (1882–1949).', anchor:'#history' },
+  { section:'История', title:'Посад Мелекесс (1877)', text:'По Высочайшему повелению Александра II Мелекесский завод Ставропольского уезда Самарской губернии получил статус посада.', anchor:'#history' },
+  { section:'История', title:'Великая Отечественная война', text:'Три госпиталя, шесть тысяч эвакуированных, фонды библиотеки Салтыкова-Щедрина, фабрика им. Клары Цеткин. 1943 — Ульяновская область.', anchor:'#history' },
+  { section:'История', title:'НIIАР — атомный институт', text:'Научно-исследовательский институт атомных реакторов, основан в конце 1950-х. Академик Курчатов. Соцгород в сосновых борах.', anchor:'#history' },
+  { section:'Справка', title:'География', text:'Заволжье, левобережье, 54°13′ с.ш. 49°34′ в.д., высота 50–100 м, площадь 103,98 км².', anchor:'#info' },
+  { section:'Справка', title:'Климат', text:'Умеренно-континентальный климат, зима −13°C, лето +21°C, осадки 400–500 мм в год.', anchor:'#info' },
+  { section:'Справка', title:'Население', text:'Около 108 804 человек (2024), 159-е место в России, многонациональный состав.', anchor:'#info' },
+  { section:'Справка', title:'Экономика', text:'НIIАР, железнодорожный узел, Сбербанк, Россельхозбанк, транспортная доступность: 18 ч до Москвы.', anchor:'#info' },
+  { section:'Справка', title:'Культура', text:'Краеведческий музей, городской театр, Мелекесская епархия (2012), Спасо-Преображенская церковь, спортивная столица с 2007 года.', anchor:'#info' },
+  { section:'Путеводитель', title:'Краеведческий музей', text:'ул. Прониной, 21. Основан 1960-е, историко-краеведческий профиль.', anchor:'#guide' },
+  { section:'Путеводитель', title:'Спасо-Преображенская церковь', text:'Кафедральный храм Мелекесской епархии РПЦ.', anchor:'#guide' },
+  { section:'Путеводитель', title:'Сосновые боры Западного района', text:'«Город в лесу» — крупные лесные массивы, сохранённые при строительстве Соцгорода.', anchor:'#guide' },
+  { section:'Путеводитель', title:'Доходный дом Булгар', text:'Бывший театр Модерн, памятник архитектуры начала XX века.', anchor:'#guide' },
+];
+
+// ---- Navbar scroll ----
+const navbar = document.getElementById('navbar');
+const backTop = document.getElementById('back-top');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 20);
+  backTop.classList.toggle('visible', window.scrollY > 400);
+});
+
+// ---- Theme ----
+const themeBtn = document.getElementById('theme-btn');
+let dark = localStorage.getItem('theme') === 'dark';
+function applyTheme() {
+  document.documentElement.setAttribute('data-theme', dark ? 'dark' : '');
+  themeBtn.textContent = dark ? '☀️' : '🌙';
+}
+applyTheme();
+themeBtn.addEventListener('click', () => { dark = !dark; localStorage.setItem('theme', dark ? 'dark' : 'light'); applyTheme(); });
+
+// ---- Mobile hamburger ----
+const hamburger = document.getElementById('hamburger-btn');
+const navMobile = document.getElementById('nav-mobile');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  navMobile.classList.toggle('open');
+});
+document.querySelectorAll('.mobile-link').forEach(a => {
+  a.addEventListener('click', () => { hamburger.classList.remove('open'); navMobile.classList.remove('open'); });
+});
+
+// ---- Search ----
+const searchBtn = document.getElementById('search-btn');
+const searchOverlay = document.getElementById('search-overlay');
+const searchInput = document.getElementById('search-input');
+const searchClose = document.getElementById('search-close');
+const searchResults = document.getElementById('search-results');
+
+function openSearch() { searchOverlay.classList.add('open'); searchInput.focus(); }
+function closeSearch() { searchOverlay.classList.remove('open'); searchInput.value = ''; searchResults.innerHTML = ''; }
+
+searchBtn.addEventListener('click', openSearch);
+searchClose.addEventListener('click', closeSearch);
+searchOverlay.addEventListener('click', e => { if (e.target === searchOverlay) closeSearch(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSearch(); });
+
+searchInput.addEventListener('input', () => {
+  const q = searchInput.value.trim().toLowerCase();
+  if (q.length < 2) { searchResults.innerHTML = ''; return; }
+  const hits = searchData.filter(d =>
+    d.title.toLowerCase().includes(q) ||
+    d.text.toLowerCase().includes(q) ||
+    d.section.toLowerCase().includes(q)
+  );
+  if (hits.length === 0) { searchResults.innerHTML = '<p style="color:var(--text-muted);padding:1rem 0">Ничего не найдено</p>'; return; }
+  searchResults.innerHTML = hits.slice(0, 8).map(h => {
+    const hi = s => s.replace(new RegExp(q, 'gi'), m => `<mark>${m}</mark>`);
+    return `<div class="search-result-item" onclick="window.location='${h.anchor}';closeSearch()">
+      <div class="sri-section">${h.section}</div>
+      <div class="sri-title">${hi(h.title)}</div>
+      <div class="sri-text">${hi(h.text)}</div>
+    </div>`;
+  }).join('');
+});
+
+// ---- Scroll reveal ----
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, { threshold: 0.1 });
+revealEls.forEach(el => io.observe(el));
+
+// ---- Slider ----
+let currentSlide = 0;
+const track = document.getElementById('slider-track');
+const slides = track.querySelectorAll('.slide');
+const dotsWrap = document.getElementById('slider-dots');
+const total = slides.length;
+
+// Create dots
+slides.forEach((_, i) => {
+  const d = document.createElement('button');
+  d.className = 'slider-dot' + (i === 0 ? ' active' : '');
+  d.onclick = () => goSlide(i);
+  dotsWrap.appendChild(d);
+});
+function goSlide(n) {
+  currentSlide = (n + total) % total;
+  track.style.transform = `translateX(-${currentSlide * 100}%)`;
+  dotsWrap.querySelectorAll('.slider-dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+}
+document.getElementById('slide-prev').onclick = () => goSlide(currentSlide - 1);
+document.getElementById('slide-next').onclick = () => goSlide(currentSlide + 1);
+// Auto-advance
+setInterval(() => goSlide(currentSlide + 1), 5000);
+
+// ---- Lightbox ----
+function openLightbox(src, caption) {
+  const lb = document.getElementById('lightbox');
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox-caption').textContent = caption;
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('lightbox').addEventListener('click', e => {
+  if (e.target.id === 'lightbox') closeLightbox();
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+// ---- Info cards ----
+function toggleCard(btn) {
+  const card = btn.closest('.info-card');
+  const expanded = card.classList.toggle('expanded');
+  btn.textContent = expanded ? 'Скрыть' : 'Подробнее';
+}
+
+// ---- Attraction filter ----
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    document.querySelectorAll('.attraction-card').forEach(card => {
+      if (filter === 'all' || card.dataset.type === filter) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  });
+});
+
+// ---- Map modal ----
+function openMap(name, lat, lng) {
+  document.getElementById('map-modal-title').textContent = name;
+  const src = `https://maps.google.com/maps?q=${lat},${lng}&z=15&output=embed`;
+  document.getElementById('map-iframe').src = src;
+  document.getElementById('map-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeMap() {
+  document.getElementById('map-modal').classList.remove('open');
+  document.getElementById('map-iframe').src = '';
+  document.body.style.overflow = '';
+}
+document.getElementById('map-modal').addEventListener('click', e => {
+  if (e.target === document.getElementById('map-modal')) closeMap();
+});
+
+// ---- Contact form ----
+function submitForm(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('button[type=submit]');
+  btn.textContent = 'Отправка...';
+  btn.disabled = true;
+  setTimeout(() => {
+    document.getElementById('form-success').style.display = 'block';
+    e.target.reset();
+    btn.textContent = '📨 Отправить сообщение';
+    btn.disabled = false;
+  }, 1200);
+}
+
+</script>
+</body>
+</html>
