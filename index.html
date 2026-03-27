@@ -628,6 +628,72 @@
     }
 
     /* ============================================================
+       FAMOUS PEOPLE SECTION
+    ============================================================ */
+    #people { background: var(--bg2); }
+    .people-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .person-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 2rem 1.75rem;
+      text-align: center;
+      border: 1px solid var(--border);
+      transition: transform var(--transition), box-shadow var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .person-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--gold));
+    }
+    .person-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+    .person-avatar {
+      width: 96px; height: 96px; border-radius: 50%;
+      margin: 0 auto 1.25rem;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--serif); font-size: 1.9rem; font-weight: 700;
+      color: #fff;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      flex-shrink: 0; border: 3px solid var(--bg2);
+      box-shadow: 0 4px 16px rgba(139,58,26,0.25);
+    }
+    .person-card:nth-child(2) .person-avatar { background: linear-gradient(135deg, #2c5f8a, #3b7fc4); }
+    .person-card:nth-child(3) .person-avatar { background: linear-gradient(135deg, #3a6e3a, #5aab5a); }
+    .person-card:nth-child(4) .person-avatar { background: linear-gradient(135deg, #6a3a8a, #9a5aba); }
+    .person-card:nth-child(5) .person-avatar { background: linear-gradient(135deg, #8a6a2a, #c4a04a); }
+    .person-card:nth-child(6) .person-avatar { background: linear-gradient(135deg, #5a2a5a, #8a4a8a); }
+    .person-category {
+      display: inline-block; padding: 0.25rem 0.8rem;
+      background: var(--bg2); border-radius: 100px;
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.07em;
+      text-transform: uppercase; color: var(--accent);
+      border: 1px solid var(--border); margin-bottom: 0.75rem;
+    }
+    .person-name {
+      font-family: var(--serif); font-size: 1.35rem; font-weight: 700;
+      color: var(--text); margin-bottom: 0.25rem; line-height: 1.2;
+    }
+    .person-years {
+      font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.85rem;
+      font-style: italic;
+    }
+    .person-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.75; }
+    .person-tag {
+      display: inline-block; margin-top: 1rem; padding: 0.3rem 0.8rem;
+      background: rgba(139,58,26,0.08); border-radius: 6px;
+      font-size: 0.78rem; color: var(--accent); font-weight: 500;
+    }
+    [data-theme="dark"] .person-tag { background: rgba(212,105,74,0.12); }
+    @media (max-width: 960px) { .people-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .people-grid { grid-template-columns: 1fr; } }
+
+    /* ============================================================
        FOOTER
     ============================================================ */
     footer {
@@ -699,6 +765,7 @@
     <li><a href="#history">История</a></li>
     <li><a href="#info">Справка</a></li>
     <li><a href="#gallery">Галерея</a></li>
+    <li><a href="#people">Люди</a></li>
     <li><a href="#guide">Путеводитель</a></li>
     
   </ul>
@@ -717,6 +784,7 @@
   <a href="#history" class="mobile-link">История</a>
   <a href="#info" class="mobile-link">Справочный центр</a>
   <a href="#gallery" class="mobile-link">Галерея</a>
+  <a href="#people" class="mobile-link">Знаменитые люди</a>
   <a href="#guide" class="mobile-link">Путеводитель</a>
   
 </div>
@@ -1070,6 +1138,82 @@
   </div>
 </section>
 
+<!-- ====================== FAMOUS PEOPLE ====================== -->
+<section id="people">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Знаменитые горожане</div>
+      <h2 class="section-title">Люди, прославившие город</h2>
+      <div class="sep"></div>
+      <p class="section-subtitle">Димитровград — родина и дом выдающихся спортсменов, учёных и деятелей культуры, вписавших своё имя в историю России и мира.</p>
+    </div>
+
+    <div class="people-grid">
+
+      <!-- 1. Лебзяк -->
+      <div class="person-card reveal">
+        <div class="person-avatar">АЛ</div>
+        <div class="person-category">🥊 Спорт</div>
+        <div class="person-name">Александр Лебзяк</div>
+        <div class="person-years">р. 1969, Димитровград</div>
+        <p class="person-desc">Олимпийский чемпион по боксу на Играх в Сиднее (2000) и чемпион мира (1998) в лёгкой весовой категории. Воспитанник димитровградской боксёрской школы, многократный чемпион России и Европы. Заслуженный мастер спорта СССР.</p>
+        <span class="person-tag">🏅 Олимпийский чемпион</span>
+      </div>
+
+      <!-- 2. Блохинцев -->
+      <div class="person-card reveal">
+        <div class="person-avatar">ДБ</div>
+        <div class="person-category">⚛️ Наука</div>
+        <div class="person-name">Дмитрий Блохинцев</div>
+        <div class="person-years">1908–1979</div>
+        <p class="person-desc">Выдающийся советский физик-теоретик, основатель квантовой теории твёрдого тела в СССР. Возглавлял Научно-исследовательский институт атомных реакторов (НIIАР) в Димитровграде. Член-корреспондент АН СССР, лауреат Сталинской и Ленинской премий.</p>
+        <span class="person-tag">🏛️ Основатель НIIАР</span>
+      </div>
+
+      <!-- 3. Курчатов -->
+      <div class="person-card reveal">
+        <div class="person-avatar">ИК</div>
+        <div class="person-category">⚛️ Наука</div>
+        <div class="person-name">Игорь Курчатов</div>
+        <div class="person-years">1903–1960</div>
+        <p class="person-desc">«Отец» советской атомной бомбы и программы мирного атома. Академик АН СССР, трижды Герой Социалистического Труда. Под его научным руководством создавался НIIАР в Димитровграде — один из главных ядерных центров страны.</p>
+        <span class="person-tag">🔬 Академик, куратор НIIАР</span>
+      </div>
+
+      <!-- 4. Ершов -->
+      <div class="person-card reveal">
+        <div class="person-avatar">ВЕ</div>
+        <div class="person-category">🎭 Культура</div>
+        <div class="person-name">Владимир Ершов</div>
+        <div class="person-years">1896–1964, уроженец Мелекесса</div>
+        <p class="person-desc">Советский актёр театра и кино, Народный артист РСФСР. Родился в Мелекессе. Служил в Государственном академическом театре им. Вахтангова. Сыграл более 50 ролей в кино, включая значимые образы советской эпохи.</p>
+        <span class="person-tag">🎬 Народный артист РСФСР</span>
+      </div>
+
+      <!-- 5. Масленников -->
+      <div class="person-card reveal">
+        <div class="person-avatar">ЕМ</div>
+        <div class="person-category">🥊 Спорт</div>
+        <div class="person-name">Евгений Масленников</div>
+        <div class="person-years">1939–2009</div>
+        <p class="person-desc">Советский боксёр, серебряный призёр Олимпийских игр в Риме (1960) в лёгкой весовой категории. Чемпион СССР, воспитанник волжской боксёрской школы. Один из первых олимпийских медалистов, связанных с Димитровградом.</p>
+        <span class="person-tag">🥈 Серебряный призёр ОИ-1960</span>
+      </div>
+
+      <!-- 6. Яковлев -->
+      <div class="person-card reveal">
+        <div class="person-avatar">ИЯ</div>
+        <div class="person-category">📚 Просвещение</div>
+        <div class="person-name">Иван Яковлев</div>
+        <div class="person-years">1848–1930</div>
+        <p class="person-desc">Великий чувашский просветитель, педагог и писатель. Создал современный чувашский алфавит и первую чувашскую грамматику. Посвятил жизнь образованию чувашского народа — того самого, чьи деревни стояли на месте будущего Мелекесса-Димитровграда.</p>
+        <span class="person-tag">✍️ Просветитель чувашей</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ====================== GALLERY ====================== -->
 <section id="gallery">
   <div class="section-inner">
@@ -1330,6 +1474,7 @@
           <li><a href="#intro">О городе</a></li>
           <li><a href="#history">История</a></li>
           <li><a href="#info">Справочный центр</a></li>
+          <li><a href="#people">Знаменитые люди</a></li>
           <li><a href="#gallery">Галерея</a></li>
           <li><a href="#guide">Путеводитель</a></li>
           
@@ -1363,6 +1508,12 @@
 // ---- Search Data ----
 const searchData = [
   { section:'О городе', title:'Димитровград — общее описание', text:'Город в Ульяновской области, расположен на берегу Черемшанского залива Куйбышевского водохранилища при впадении реки Большой Черемшан. 79 км от Ульяновска.', anchor:'#intro' },
+  { section:'Люди', title:'Александр Лебзяк — боксёр', text:'Олимпийский чемпион (Сидней 2000), чемпион мира (1998), уроженец Димитровграда. Заслуженный мастер спорта СССР.', anchor:'#people' },
+  { section:'Люди', title:'Дмитрий Блохинцев — физик', text:'Физик-теоретик, первый директор НIIАР, член-корреспондент АН СССР, лауреат Ленинской премии. 1908–1979.', anchor:'#people' },
+  { section:'Люди', title:'Игорь Курчатов — атомный учёный', text:'«Отец» советской атомной бомбы, академик, трижды Герой Социалистического Труда. Куратор и создатель НIIАР в Димитровграде.', anchor:'#people' },
+  { section:'Люди', title:'Владимир Ершов — актёр', text:'Народный артист РСФСР, уроженец Мелекесса. Актёр Театра Вахтангова. 1896–1964.', anchor:'#people' },
+  { section:'Люди', title:'Евгений Масленников — боксёр', text:'Серебряный призёр Олимпийских игр в Риме (1960), чемпион СССР, воспитанник волжской боксёрской школы.', anchor:'#people' },
+  { section:'Люди', title:'Иван Яковлев — просветитель', text:'Великий чувашский педагог и писатель, создатель чувашского алфавита и грамматики. 1848–1930.', anchor:'#people' },
   { section:'История', title:'Основание города (1698)', text:'Деревня Чувашский Мелекес, ясашные чуваши, первое упоминание в Подлинной межевой книге земель князя Меншикова (1706).', anchor:'#history' },
   { section:'История', title:'Переименование в Димитровград (1972)', text:'15 июля 1972 года Мелекесс переименован в Димитровград в честь Георгия Димитрова, Генерального секретаря ЦК БКП (1882–1949).', anchor:'#history' },
   { section:'История', title:'Посад Мелекесс (1877)', text:'По Высочайшему повелению Александра II Мелекесский завод Ставропольского уезда Самарской губернии получил статус посада.', anchor:'#history' },
